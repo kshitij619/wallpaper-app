@@ -39,4 +39,19 @@ class WallpaperModel {
   final String avgColor;
   final WallpaperUrlModel src;
   final String alt;
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'width': width,
+      'height': height,
+      'url': url,
+      'photographer': photographer,
+      'photographer_url': photographerUrl,
+      'photographer_id': photographerId,
+      'avgColor': avgColor,
+      'src': src.toMap(),
+      'alt': alt,
+    };
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wallpaper_app/modules/explore/models/wallpaper_model.dart';
+import 'package:wallpaper_app/modules/explore/view/widgets/explore_wallpaper_grid_view_item.dart';
 import 'package:wallpaper_app/modules/explore/view_model/explore_view_model.dart';
 
 class ExploreWallpapersGridViewBuilder extends StatefulWidget {
@@ -39,67 +40,7 @@ class _ExploreWallpapersGridViewBuilderState
           ),
           itemBuilder: (context, index) {
             final wallpaper = wallpapers[index];
-            return Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    wallpaper.src.portrait,
-                  ),
-                ),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.maxFinite,
-                decoration: BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(12),
-                    bottomRight: Radius.circular(12),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.camera,
-                            color: Colors.white70,
-                            size: 12,
-                          ),
-                          SizedBox(width: 4),
-                          Text(
-                            wallpaper.photographer,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall
-                                ?.copyWith(
-                                  color: Colors.white60,
-                                ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        wallpaper.alt,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Colors.white,
-                            ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            );
+            return ExploreWallpaperGridViewItem(wallpaper: wallpaper);
           },
         );
       },
