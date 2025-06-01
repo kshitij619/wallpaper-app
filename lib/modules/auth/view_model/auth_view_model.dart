@@ -33,7 +33,7 @@ class AuthViewModel extends ChangeNotifier {
 
   void getUser() async {
     log('Get user call');
-    _user = await _service.getUser();
+    _user = _service.getUser();
     notifyListeners();
     log('User: $_user');
   }
