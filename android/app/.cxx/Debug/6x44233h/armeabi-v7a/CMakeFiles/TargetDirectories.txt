@@ -1,0 +1,2 @@
+A:/Documents/Studies/L3PP/Android_IOS/wallpaper_app/android/app/.cxx/Debug/6x44233h/armeabi-v7a/CMakeFiles/edit_cache.dir
+A:/Documents/Studies/L3PP/Android_IOS/wallpaper_app/android/app/.cxx/Debug/6x44233h/armeabi-v7a/CMakeFiles/rebuild_cache.dir
