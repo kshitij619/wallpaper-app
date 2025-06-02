@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper_app/modules/explore/view/widgets/explore_page_provider.dart';
-import 'package:wallpaper_app/modules/favorites/view/favorites_page.dart';
+import 'package:wallpaper_app/modules/favorites/view/favourites_page_provider.dart';
 import 'package:wallpaper_app/modules/home/model/bottom_nav_model.dart';
 import 'package:wallpaper_app/modules/profile/view/profile_page.dart';
 
@@ -14,7 +14,7 @@ class HomeViewModel extends ChangeNotifier {
     BottomNavModel(
       name: 'Favorites',
       icon: Icon(Icons.favorite),
-      page: FavoritesPage(),
+      page: FavouritesPageProvider(),
     ),
     BottomNavModel(
       name: 'Profile',
