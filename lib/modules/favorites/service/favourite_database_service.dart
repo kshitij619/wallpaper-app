@@ -18,9 +18,7 @@ class FavouriteDatabaseService {
     final snapshot = await ref.get();
 
     return snapshot.docs
-        .map(
-          (doc) => WallpaperModel.fromMap(doc.data()),
-        )
+        .map((doc) => WallpaperModel.fromMap(doc.data()))
         .toList();
   }
 }

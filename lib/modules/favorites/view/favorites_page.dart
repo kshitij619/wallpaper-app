@@ -28,7 +28,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
       selector: (_, vm) => vm.wallpapers,
       builder: (context, wallpapers, child) {
         return RefreshIndicator(
-          onRefresh: context.read<FavouriteViewModel>().fetchWallpapers,
+          onRefresh: () => context.read<FavouriteViewModel>().fetchWallpapers(),
           child: ExploreWallpaperGridView(
             wallpapers: wallpapers,
           ),

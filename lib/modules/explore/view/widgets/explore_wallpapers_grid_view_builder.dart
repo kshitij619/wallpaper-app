@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wallpaper_app/modules/explore/models/wallpaper_model.dart';
 import 'package:wallpaper_app/modules/explore/view/widgets/explore_wallpaper_grid_view.dart';
-import 'package:wallpaper_app/modules/explore/view/widgets/explore_wallpaper_grid_view_item.dart';
 import 'package:wallpaper_app/modules/explore/view_model/explore_view_model.dart';
 
 class ExploreWallpapersGridViewBuilder extends StatefulWidget {

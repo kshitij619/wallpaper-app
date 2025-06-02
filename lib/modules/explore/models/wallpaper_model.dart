@@ -23,7 +23,7 @@ class WallpaperModel {
       photographer: map['photographer'] as String,
       photographerUrl: map['photographer_url'] as String,
       photographerId: map['photographer_id'] as int,
-      avgColor: map['avg_color'] as String,
+      avgColor: map['avg_color'] as String?,
       src: WallpaperUrlModel.fromMap(map['src'] as Map<String, dynamic>),
       alt: map['alt'] as String,
     );
@@ -36,7 +36,7 @@ class WallpaperModel {
   final String photographer;
   final String photographerUrl;
   final int photographerId;
-  final String avgColor;
+  final String? avgColor;
   final WallpaperUrlModel src;
   final String alt;
 
