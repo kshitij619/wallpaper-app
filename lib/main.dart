@@ -13,5 +13,3 @@ void main() async {
   );
   runApp(const Application());
 }
-
-// Start at 1:41:00
