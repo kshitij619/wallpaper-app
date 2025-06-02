@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:wallpaper_app/core/env_service.dart';
@@ -23,7 +22,10 @@ class ExploreRemoteService {
           'per_page': 5,
         },
       );
-      log(response.statusCode.toString());
+
+      //Status Code
+      // log(response.statusCode.toString());
+
       final result = WallpaperResponseModel.fromMap(response.data);
       return Right(result);
     } on DioException catch (e) {

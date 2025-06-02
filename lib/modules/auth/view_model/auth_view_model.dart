@@ -24,7 +24,7 @@ class AuthViewModel extends ChangeNotifier {
       final userModel = await userService.createUser(
         UserModel.fromFirebaseUser(_user!),
       );
-      log('Login success: $_user');
+      log('Login success: ${userModel!.userName ?? 'user'}');
     }
 
     isLoading = false;
