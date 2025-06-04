@@ -6,12 +6,16 @@ class ExploreWallpaperGridView extends StatelessWidget {
   const ExploreWallpaperGridView({
     super.key,
     required this.wallpapers,
+    required this.scrollController,
   });
 
   final List<WallpaperModel> wallpapers;
+  final ScrollController scrollController;
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      controller: scrollController,
       itemCount: wallpapers.length,
       padding: EdgeInsetsDirectional.all(12),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -14,14 +14,34 @@ class ExploreWallpapersGridViewBuilder extends StatefulWidget {
 
 class _ExploreWallpapersGridViewBuilderState
     extends State<ExploreWallpapersGridViewBuilder> {
+  final scrollController = ScrollController();
+  final exploreViewModel = ExploreViewModel();
+
   @override
   void initState() {
     super.initState();
+    scrollController.addListener(_scrollListener);
     Future.microtask(
       () {
         if (mounted) context.read<ExploreViewModel>().fetchWallpaper();
       },
     );
+  }
+
+  void _scrollListener() {
+    bool isLoading = exploreViewModel.isLoading;
+
+    if (scrollController.position.pixels >=
+            scrollController.position.maxScrollExtent - 100 &&
+        !isLoading) {
+      exploreViewModel.loadNext();
+    }
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -31,6 +51,7 @@ class _ExploreWallpapersGridViewBuilderState
       builder: (context, wallpapers, child) {
         return ExploreWallpaperGridView(
           wallpapers: wallpapers,
+          scrollController: scrollController,
         );
       },
     );

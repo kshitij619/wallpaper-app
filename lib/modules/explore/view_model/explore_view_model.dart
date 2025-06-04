@@ -6,6 +6,9 @@ import 'package:wallpaper_app/modules/explore/services/explore_remote_service.da
 
 class ExploreViewModel extends ChangeNotifier {
   List<WallpaperModel> wallpapers = [];
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
 
   final _service = ExploreRemoteService();
   void fetchWallpaper() async {
@@ -15,9 +18,25 @@ class ExploreViewModel extends ChangeNotifier {
         log(l.toString());
       },
       (r) {
-        wallpapers = r.photos;
+        wallpapers = [...wallpapers, ...r.photos];
         notifyListeners();
       },
     );
+  }
+
+  void loadNext() {
+    if (_isLoading) return;
+    _isLoading = true;
+    notifyListeners();
+    fetchWallpaper();
+    try {
+      _service.loadNextPage();
+      log('loadNext');
+    } catch (e, s) {
+      log('$e', stackTrace: s);
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
   }
 }

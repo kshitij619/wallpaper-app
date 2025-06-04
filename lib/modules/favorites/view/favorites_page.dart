@@ -12,6 +12,7 @@ class FavoritesPage extends StatefulWidget {
 }
 
 class _FavoritesPageState extends State<FavoritesPage> {
+  final scrollController = ScrollController();
   @override
   void initState() {
     super.initState();
@@ -31,6 +32,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
           onRefresh: () => context.read<FavouriteViewModel>().fetchWallpapers(),
           child: ExploreWallpaperGridView(
             wallpapers: wallpapers,
+            scrollController: scrollController,
           ),
         );
       },

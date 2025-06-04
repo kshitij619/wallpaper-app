@@ -13,13 +13,16 @@ class ExploreRemoteService {
     ),
   );
 
+  int page = 1;
+  int perPage = 5;
+
   Future<Either<String, WallpaperResponseModel>> getWallpapers() async {
     try {
       final response = await _client.get(
         'v1/curated',
         queryParameters: {
-          'page': 1,
-          'per_page': 5,
+          'page': page,
+          'per_page': perPage,
         },
       );
 
@@ -31,5 +34,10 @@ class ExploreRemoteService {
     } on DioException catch (e) {
       return Left(e.message ?? 'Something is wrong');
     }
+  }
+
+  void loadNextPage() async {
+    page++;
+    await getWallpapers();
   }
 }
